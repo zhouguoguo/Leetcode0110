@@ -8,18 +8,17 @@ public:
     vector<string> fizzBuzz(int n) {
         vector<string> result;
         for (int i = 1; i <= n; ++i) {
-            if (i % 3 == 0 && i % 5 == 0) {
-                result.push_back("FizzBuzz");
+            string s;
+            if (i % 3 == 0) {
+                s.append("Fizz");
             }
-            else if (i % 3 == 0) {
-                result.push_back("Fizz");
+            if (i % 5 == 0) {
+                s.append("Buzz");
             }
-            else if (i % 5 == 0) {
-                result.push_back("Buzz");
+            if (s == "") {
+                s = to_string(i);
             }
-            else {
-                result.push_back(to_string(i));
-            }
+            result.push_back(s);
         }
         return result;
     }
@@ -28,13 +27,7 @@ public:
 int main(int argc, char *args[])
 {
     Solution s;
-    vector<string> test;
-    test.push_back("hou");
-    cout << test.size() << endl;
-    test.push_back("xiao");
-    cout << test.size() << endl;
     vector<string> v = s.fizzBuzz(15);
-    cout << v.size() << endl;
     for (auto str : v)
         cout << str << endl;
     system("pause");
